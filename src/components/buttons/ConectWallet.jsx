@@ -1,7 +1,10 @@
-import { useMetamask } from '../../hooks/useMetamask'
+import { useAccount, useDisconnect } from 'wagmi';
+import { useConnectModal } from '@rainbow-me/rainbowkit';
 
 export default function ConectWallet() {
-  const { address, isConnected, isPending, connect, disconnect } = useMetamask()
+  const { address, isConnected } = useAccount();
+  const { openConnectModal } = useConnectModal();
+  const { disconnect } = useDisconnect();
 
   if (isConnected && address) {
     return (
@@ -9,23 +12,22 @@ export default function ConectWallet() {
         <span className="text-xs">
           {address.slice(0, 6)}...{address.slice(-4)}
         </span>
-        <button 
-          className="btn btn-secondary btn-sm" 
-          onClick={disconnect}
+        <button
+          className="btn btn-secondary btn-sm"
+          onClick={() => disconnect()}
         >
-            Disconnect 
+          Disconnect
         </button>
       </div>
-    )
+    );
   }
 
   return (
     <button
       className="btn btn-primary btn-sm"
-      onClick={connect}
-      disabled={isPending}
+      onClick={openConnectModal}
     >
-      {isPending ? 'Connecting...' : 'Connect Wallet'}
+      Connect Wallet
     </button>
-  )
+  );
 }

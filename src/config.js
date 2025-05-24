@@ -1,18 +1,23 @@
-import { createConfig, http } from 'wagmi'
-import { avalanche, avalancheFuji } from 'wagmi/chains'
-import { injected } from 'wagmi/connectors'
+'use client';
 
-export const config = createConfig({
-  chains: [avalanche, avalancheFuji],
-  connectors: [
-    injected({
-      shimDisconnect: true,
-      name: 'Metamask',
-      timeout: 5000
-    })
-  ],
-  transports: {
-    [avalanche.id]: http(),
-    [avalancheFuji.id]: http(),
-  },
-})
+import { http, createStorage, cookieStorage } from 'wagmi'
+import { sepolia, mainnet, polygon, avalanche } from 'wagmi/chains'
+import { getDefaultConfig } from '@rainbow-me/rainbowkit'
+
+const projectId = 'fb7d28064791f93f304144668effdc39'
+
+const supportedChains = [mainnet, sepolia, polygon, avalanche];
+
+export const config = getDefaultConfig({
+   appName: 'DRAMTOKEN',
+   projectId,
+   chains: supportedChains,
+   ssr: true,
+   storage: createStorage({
+    storage: cookieStorage,
+   }),
+   transports: supportedChains.reduce(
+     (obj, chain) => ({ ...obj, [chain.id]: http() }), 
+     {}
+   )
+});
