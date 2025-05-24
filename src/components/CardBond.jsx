@@ -1,6 +1,6 @@
 import Button from "./buttons/Button";
-import React, { useState } from "react";
-import { useERC20Balance } from "../hooks/useERC20Balance";
+import React from "react";
+
 // Puedes mapear los tokens aquí para fácil acceso
 const TOKENS = {
   usdt: {
@@ -18,24 +18,6 @@ const TOKENS = {
 };
 
 export default function CardBond() {
-  const [amount, setAmount] = useState("");
-  const [token, setToken] = useState("usdt");
-  const [account, setAccount] = useState("");
-  const [price] = useState("100 USDT");
-
-  // Hook para balance
-  const { balance } = useERC20Balance(TOKENS[token].address, account);
-
-  // Conectar wallet
-  const connectWallet = async () => {
-    if (window.ethereum) {
-      const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
-      setAccount(accounts[0]);
-    } else {
-      alert("MetaMask no está instalado");
-    }
-  };
-
   return (
     <div className="flex items-center justify-center py-12">
       <div className="card bg-neutral text-neutral-content w-96">
@@ -47,33 +29,13 @@ export default function CardBond() {
             <Button variant="secondary">Sell</Button>
           </div>
           <form className="mt-4">
-            <button
-              type="button"
-              className="btn btn-primary w-full mb-2"
-              onClick={connectWallet}
-              disabled={!!account}
-            >
-              {account ? "Wallet conectada" : "Conectar MetaMask"}
-            </button>
-            {account && (
-              <div className="mb-2 text-xs break-all">Cuenta: {account}</div>
-            )}
+            <label className="label mt-4">Balance</label>
+            <div className="mb-2 text-sm">
+              {/* Balance aquí */}
+            </div>
 
             <label className="label mt-4">Price</label>
-            <input
-              type="text"
-              className="input"
-              value={price}
-              readOnly
-            />
-
-            <label className="label mt-4">Balance</label>
-            <input
-              type="text"
-              className="input"
-              value={balance}
-              readOnly
-            />
+            <input type="text" className="input" value="100 USDT" readOnly />
 
             <label className="label mt-4">Amount</label>
             <input
@@ -82,19 +44,14 @@ export default function CardBond() {
               placeholder="Cantidad a comprar"
               min="0"
               step="any"
-              value={amount}
-              onChange={e => setAmount(e.target.value)}
             />
 
             <label className="label mt-4">Token to buy</label>
-            <select
-              className="select"
-              value={token}
-              onChange={e => setToken(e.target.value)}
-            >
+            <select className="select">
               <option value="usdt">USDT</option>
               <option value="usdc">USDC</option>
               <option value="dai">DAI</option>
+              <option value="avax">AVAX</option>
             </select>
           </form>
         </div>
