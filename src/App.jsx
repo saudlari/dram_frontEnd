@@ -4,14 +4,14 @@ import BondPage from './pages/BondPage'
 import Footer from './components/Footer'
 
 function App() {
-
   return (
-    <>
-    <Header />
-    <BondPage />
-    <Footer />
-  
-    </>
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <main className="flex-grow">
+        <BondPage />
+      </main>
+      <Footer />
+    </div>
   )
 }
 

@@ -13,7 +13,7 @@ export default function ConectWallet() {
           className="btn btn-error btn-sm" 
           onClick={disconnect}
         >
-          Desconectar
+          Conectar Wallet
         </button>
       </div>
     )
