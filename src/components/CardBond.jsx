@@ -4,7 +4,7 @@ import React from "react";
 import { useAccount } from 'wagmi'
 
 
-const CONTRACT_ADDRESS = "0x91899Dd3E3d5C7a2DE831b1F7e3065995810D0E1" // Tu dirección del contrato
+const CONTRACT_ADDRESS = "0xeb10b11746a01f69adced33ce679882499535bac" // Tu dirección del contrato
 
 export default function CardBond() {
   const { address } = useAccount()

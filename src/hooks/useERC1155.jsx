@@ -8,9 +8,11 @@ export function useERC1155(contractAddress) {
     address: contractAddress,
     abi: ERC1155_ABI,
     functionName: 'balanceOf',
-    args: [address, 0], // tokenId 0 por defecto
+    args: [address, 1], // tokenId 0 por defecto
     enabled: !!address,
   })
+
+  console.log(balance)
 
   const { writeAsync: transfer, isLoading: isTransferring } = useContractWrite({
     address: contractAddress,

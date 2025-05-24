@@ -10,10 +10,10 @@ export default function ConectWallet() {
           {address.slice(0, 6)}...{address.slice(-4)}
         </span>
         <button 
-          className="btn btn-error btn-sm" 
+          className="btn btn-secondary btn-sm" 
           onClick={disconnect}
         >
-          Conectar Wallet
+            Disconnect 
         </button>
       </div>
     )
@@ -25,7 +25,7 @@ export default function ConectWallet() {
       onClick={connect}
       disabled={isPending}
     >
-      {isPending ? 'Conectando...' : 'Conectar Wallet'}
+      {isPending ? 'Connecting...' : 'Connect Wallet'}
     </button>
   )
 }
