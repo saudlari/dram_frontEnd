@@ -1,9 +1,12 @@
 # Dram
 
-![Whiskey Warehouse](docs/bin/whisky-warehouse.PNG)
+## [BackEnd Project] (https://github.com/tom-craven/dram)
 
-[BackEnd Project] (https://github.com/tom-craven/dram)
+## Live Project [here](https://dynamic-cascaron-ec36d7.netlify.app/).
+
 ### Business Objectives
+
+![whisky-warehouse](https://github.com/user-attachments/assets/545e0d3f-88af-425f-9226-d36ea1fac042)
 
 
 The project aims to innovate the Scottish whiskey industry by fictionalising whiskey-backed securities using
@@ -67,6 +70,4 @@ flowchart LR
 - **State Management**: Managed using `@tanstack/react-query` for efficient data fetching and caching.
 - **Styling**: Implemented with Tailwind CSS and DaisyUI for a responsive and modern UI.
 
-### Live Project
 
-You can view the live project [here](https://dynamic-cascaron-ec36d7.netlify.app/).
