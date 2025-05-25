@@ -1,8 +1,8 @@
 # Dram
 
-## [BackEnd Project] (https://github.com/tom-craven/dram)
+## BackEnd Project https://github.com/tom-craven/dram
 
-## Live Project [here](https://dynamic-cascaron-ec36d7.netlify.app/).
+## Live Project [here](https://dynamic-cascaron-ec36d7.netlify.app/)
 
 ### Business Objectives
 
