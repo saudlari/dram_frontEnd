@@ -10,7 +10,7 @@ export default function CardBond() {
   const { getAllowance, approve } = useUSDC();
 
   //const unlimitedAmount = 1000000000000000;
-  const smartContract = "0xb1b5b8822e58f5a6a843caa144f79853b45c60ce";
+  const smartContract = "0xef7528f2f5f2bdac47e71cf29e8db5d351b3ce54";
   const priceToken = 1;
   const tokenId = 1;
 
