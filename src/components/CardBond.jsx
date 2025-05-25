@@ -59,7 +59,7 @@ export default function CardBond() {
     <div className="flex items-center justify-center py-12">
       <div className="card bg-neutral text-neutral-content w-96">
         <div className="card-body">
-          <h2 className="card-title text-center">Buy whisky fraction</h2>
+          <h2 className="card-title text-center">BUY WHISKY FACTION</h2>
           <div className="mb-2 text-sm">
             Balance:{" "}
             {/*isLoading ? "Loading..." : balance?.toString() || "0"}*/}
